@@ -21,6 +21,17 @@ interface WeatherResponse {
     };
 }
 
+const GlassContainer = styled.div`
+  background: rgba(255, 255, 255, 0.1); /* Transparência */
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px); /* Desfoque */
+  -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borda sutil */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  color: #fff; /* Texto branco para contraste */
+`;
+
 const Main = styled.div`
     min-height: 100vh;
     max-width: 100vw;
@@ -74,29 +85,31 @@ export function Clima(){
 
     return(
         <Main>
-            <div style={{padding:'20px', textAlign:"center", color: 'white'}}>
-                <h2>Temperatura</h2>
+            <GlassContainer>
+                <div style={{padding:'20px', textAlign:"center", color: 'white'}}>
+                    <h2>Temperatura</h2>
 
-                <input type="text" placeholder="Digita a cidade ai: " value={cidade} onChange={(e) => setCidade(e.target.value)}
-                style={{padding : '8px', fontSize:'16px'}}/>
+                    <input type="text" placeholder="Digita a cidade ai: " value={cidade} onChange={(e) => setCidade(e.target.value)}
+                    style={{padding : '8px', fontSize:'16px'}}/>
 
-                <button onClick={buscarClima} style={{padding:'8px 16px', marginLeft:'10px'}}>Buscar</button>
-                
-                {temperatura !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {temperatura} °C</p>)}
-                {velocidadeVento !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {velocidadeVento} KM</p>)}
-                {umidade !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {umidade} %</p>)}
-                {sensacaoTermica !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {sensacaoTermica} °C</p>)}
-                {ultimaAtualizacao !== '' && (<p style={{marginTop : '20px'}}>Ultima Atualização: {nomeCidade} : {ultimaAtualizacao}</p>)}
-                {iconeFalado !== '' && (<p style={{marginTop : '20px'}}>Condição do tempo: {iconeFalado}</p>)}
-                {dataAtual !== '' && (<p style={{marginTop : '20px'}}>Data e horario atual: {dataAtual}</p>)}
-                {icone  != '' && (<img src={icone} alt="Icone do clima" />)}
+                    <button onClick={buscarClima} style={{padding:'8px 16px', marginLeft:'10px'}}>Buscar</button>
+                    
+                    {temperatura !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {temperatura} °C</p>)}
+                    {velocidadeVento !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {velocidadeVento} KM</p>)}
+                    {umidade !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {umidade} %</p>)}
+                    {sensacaoTermica !== null && (<p style={{marginTop : '20px'}}>{nomeCidade} : {sensacaoTermica} °C</p>)}
+                    {ultimaAtualizacao !== '' && (<p style={{marginTop : '20px'}}>Ultima Atualização: {nomeCidade} : {ultimaAtualizacao}</p>)}
+                    {iconeFalado !== '' && (<p style={{marginTop : '20px'}}>Condição do tempo: {iconeFalado}</p>)}
+                    {dataAtual !== '' && (<p style={{marginTop : '20px'}}>Data e horario atual: {dataAtual}</p>)}
+                    {icone  != '' && (<img src={icone} alt="Icone do clima" />)}
 
 
-                {erro && <p style={{color:'red'}}>{erro}</p>}
+                    {erro && <p style={{color:'red'}}>{erro}</p>}
 
-                {nomeCidade !== '' && (<Card nome = {nomeCidade}/>)}
+                    {nomeCidade !== '' && (<Card/>)}
 
-            </div>
+                </div>
+            </GlassContainer>
         </Main>
     )
 
