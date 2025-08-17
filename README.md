@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+# 🌦️ Sistema de Clima com Mascote Interativo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um sistema de previsão do tempo desenvolvido em React com estilização em **Glassmorphism**, integração com a **WeatherAPI**, e um mascote que **reage ao clima e fala com o usuário**! 🐾🗣️
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+- 🔍 Busca de cidade com Enter ou botão
+- 📅 Previsão para os próximos 3 dias
+- 🎨 Estilização dinâmica com fundo e texto que mudam conforme o clima
+- 🧸 Mascote que muda de aparência e fala 
+- 🗣️ Voz gerada via Web Speech API
+- 📦 Componentização com Styled Components
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧠 Tecnologias e APIs utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **React + TypeScript**
+- **Styled Components** para estilização
+- **WeatherAPI** para dados climáticos ([https://www.weatherapi.com](https://www.weatherapi.com))
+- **Web Speech API** para síntese de voz
+- **Google Fonts** para tipografia personalizada
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🖼️ Imagens do sistema
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Interface principal
+![Interface do sistema](./public/interface.png)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Mascotes por condição climática
+
+| Ensolarado | Chuvoso | Nublado |
+|------------|---------|---------|
+| ![Sol](./public/solzinho.png) | ![Chuva](./public/chuvoso.png) | ![Nublado](./public/nublado.png) |
+
+---
+
+## 🚀 Como rodar o projeto
+
+```bash
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+
+## 📌 Observações
+
+- A voz do mascote depende das vozes disponíveis no navegador e sistema operacional.
+- A API da WeatherAPI possui limite de requisições na versão gratuita.
